@@ -15,3 +15,13 @@ async for kind, payload in iter_bridge_messages(url):
 `tcp_accepts` and `wait_until_tcp_accepts` probe the bridge port. `next_reconnect_delay` is the backoff for a socket that drops as soon as it connects.
 
 `python -m nao_websocket_bridge_client --url ws://ROBOT:8765` prints RMS for each PCM chunk.
+
+## Local development
+
+From the other project, with the checkouts side by side:
+
+```bash
+uv add --editable ../nao-websocket-bridge-client
+```
+
+Restore that project's `pyproject.toml` and lockfile before committing. The committed dependency stays the PyPI release.
