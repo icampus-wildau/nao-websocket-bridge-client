@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nao-websocket-bridge-client"
+version = "0.1.0"
+description = "Laptop client for the NAO WebSocket bridge."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Valentin Schröter Bonk", email = "vasc9380@th-wildau.de" }]
+maintainers = [{ name = "Valentin Schröter Bonk", email = "vasc9380@th-wildau.de" }]
+dependencies = [
+    "nao-websocket-bridge-protocol",
+    "websockets>=13",
+]
+
+[tool.uv.sources]
+nao-websocket-bridge-protocol = { path = "../nao-websocket-bridge-protocol", editable = true }
+
+[tool.hatch.build.targets.wheel]
+packages = ["nao_websocket_bridge_client"]
