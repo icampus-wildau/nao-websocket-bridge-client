@@ -10,6 +10,11 @@ Requires Python 3.10+.
 uv add nao-websocket-bridge-client
 ```
 
+Run `uv add` inside an existing Python project. Alternatively, in an activated
+Python 3.10+ environment on Linux or Windows, run
+`python -m pip install nao-websocket-bridge-client`. The protocol is installed
+automatically; the robot bridge must be installed separately on the NAO.
+
 ## Read the microphone
 
 The first frame must be the audio format. `iter_bridge_messages` checks it, then yields `("format", dict)`, `("pcm", bytes)`, and `("text", dict)` for status and any other JSON.
