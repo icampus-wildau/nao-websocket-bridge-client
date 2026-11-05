@@ -1,11 +1,14 @@
-# Dependency source
+# Bridge client
 
-`nao-websocket-bridge-protocol` comes from PyPI (`>=1.0.0`).
+This package reads microphone WebSocket messages, not NAOqi controls. Public usage
+and the message contract are linked from [README.md](README.md).
 
-While editing the sibling checkout, overlay it for the session:
+`nao-websocket-bridge-protocol` is a PyPI dependency. To test sibling changes,
+temporarily use `uv add --editable ../nao-websocket-bridge-protocol`, then restore
+the pre-overlay dependency declarations and lockfile if created. The committed
+diff must use the registry dependency, without a local-path source; preserve
+unrelated dependency changes.
 
-```bash
-uv add --editable ../nao-websocket-bridge-protocol
-```
-
-Restore `pyproject.toml` before committing. The commit is done when `[tool.uv.sources]` is absent.
+Changes to message handling should be checked against the shared protocol and
+robot bridge. CI runs `python -m unittest discover -s tests -v` after installing
+this package.
